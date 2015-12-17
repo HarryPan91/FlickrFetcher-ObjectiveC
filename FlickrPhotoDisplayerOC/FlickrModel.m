@@ -33,11 +33,6 @@
     [task resume];
 }
 
-+ (void)reloadWithCompletion: (void (^)(NSMutableArray<Photographer *> *))completion {
-    [self fetchWithCompletion:completion];
-
-}
-
 + (NSMutableArray<Photographer *> *)loadImagesFromFlickrArray: (NSArray<NSDictionary<NSString *, id> *> *) photos {
     NSMutableArray<Photographer *> *photographers = [[NSMutableArray alloc]init];
     for (NSDictionary *photo in photos) {

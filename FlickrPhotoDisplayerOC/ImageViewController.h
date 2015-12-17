@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageViewController : UIViewController
 NS_ASSUME_NONNULL_BEGIN
+
+@interface ImageViewController : UIViewController
 @property(nonatomic, strong) NSURL *imageURL;
-NS_ASSUME_NONNULL_END
+
 @end
+
+NS_ASSUME_NONNULL_END

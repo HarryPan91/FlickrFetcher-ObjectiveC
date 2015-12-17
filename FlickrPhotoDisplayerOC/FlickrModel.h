@@ -11,5 +11,4 @@
 
 @interface FlickrModel : NSObject
 + (void)fetchWithCompletion: (void (^)(NSMutableArray<Photographer *> *))completion;
-+ (void)reloadWithCompletion: (void (^)(NSMutableArray<Photographer *> *))completion;
 @end

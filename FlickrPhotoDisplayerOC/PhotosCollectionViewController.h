@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Photo.h"
 
-@interface PhotosCollectionViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout>
 NS_ASSUME_NONNULL_BEGIN
+
+@interface PhotosCollectionViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout>
 @property(nonatomic, copy) NSArray<Photo *> *photos;
-NS_ASSUME_NONNULL_END
+
 @end
+
+NS_ASSUME_NONNULL_END

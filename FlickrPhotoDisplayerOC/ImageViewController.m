@@ -21,7 +21,6 @@
     [ImageDownloader downloadImageWithURL:self.imageURL andCompletion:^(UIImage * _Nullable image) {
         self.imageView.image = image;
     }];
-    
 }
 
 - (void)didReceiveMemoryWarning {

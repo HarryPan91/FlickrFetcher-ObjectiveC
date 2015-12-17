@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Photo : NSObject
 NS_ASSUME_NONNULL_BEGIN
+
+@interface Photo : NSObject
+
 @property(nonatomic, strong) NSString *unique;
 @property(nonatomic, strong) NSString *title;
 @property(nonatomic, strong) NSString *subtitle;
@@ -17,5 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) NSURL *thumbnailURL;
 @property(nonatomic, strong) NSString *owner;
 - (instancetype)initWithPhoto: (NSDictionary<NSString *, id> *)photo;
-NS_ASSUME_NONNULL_END
+
 @end
+
+NS_ASSUME_NONNULL_END

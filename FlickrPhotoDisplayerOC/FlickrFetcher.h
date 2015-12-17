@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
 // key paths to photos or places at top-level of Flickr results
 #define FLICKR_RESULTS_PHOTOS @"photos.photo"
 #define FLICKR_RESULTS_PLACES @"places.place"
@@ -36,17 +37,19 @@ typedef enum {
 
 @interface FlickrFetcher : NSObject
 
-+ (NSURL *)URLforTopPlaces;
++ (NSURL * _Nullable)URLforTopPlaces;
 
-+ (NSURL *)URLforPhotosInPlace:(id)flickrPlaceId maxResults:(int)maxResults;
++ (NSURL * _Nullable)URLforPhotosInPlace:(id)flickrPlaceId maxResults:(int)maxResults;
 
-+ (NSURL *)URLforPhoto:(NSDictionary *)photo format:(FlickrPhotoFormat)format;
++ (NSURL * _Nullable)URLforPhoto:(NSDictionary<NSString *, NSString *> *)photo format:(FlickrPhotoFormat)format;
 
-+ (NSURL *)URLforRecentGeoreferencedPhotos;
++ (NSURL * _Nullable)URLforRecentGeoreferencedPhotos;
 
-+ (NSURL *)URLforInformationAboutPlace:(id)flickrPlaceId;
++ (NSURL * _Nullable)URLforInformationAboutPlace:(id)flickrPlaceId;
 
-+ (NSString *)extractNameOfPlace:(id)placeId fromPlaceInformation:(NSDictionary *)place;
++ (NSString * _Nullable)extractNameOfPlace:(id)placeId fromPlaceInformation:(NSDictionary *)place;
 + (NSString *)extractRegionNameFromPlaceInformation:(NSDictionary *)placeInformation;
 
 @end
+
+NS_ASSUME_NONNULL_END

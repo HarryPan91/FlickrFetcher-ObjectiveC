@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FlickrPhotoCollectionViewCell : UICollectionViewCell
 NS_ASSUME_NONNULL_BEGIN
+
+@interface FlickrPhotoCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) NSURL *imageURL;
-NS_ASSUME_NONNULL_END
 @end
+
+NS_ASSUME_NONNULL_END

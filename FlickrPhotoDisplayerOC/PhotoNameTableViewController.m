@@ -11,14 +11,16 @@
 #import "FlickrModel.h"
 #import "PhotosCollectionViewController.h"
 
+typedef NSMutableArray<Photographer *> * PhotographerArrayType;
+
 @interface PhotoNameTableViewController ()
-@property(nonatomic, copy, nullable) NSMutableArray<Photographer *> *photographers;
+@property(nonatomic, copy, nullable) PhotographerArrayType photographers;
 @property(nonatomic, strong) UIActivityIndicatorView *spinner;
 @end
 
 @implementation PhotoNameTableViewController
 
-- (void)setPhotographers:(NSMutableArray<Photographer *> *)photographers {
+- (void)setPhotographers:(PhotographerArrayType)photographers {
     _photographers = photographers.mutableCopy;
 }
 
@@ -38,7 +40,7 @@
 
     [self.spinner startAnimating];
 
-    [FlickrModel fetchWithCompletion:^(NSMutableArray<Photographer *> *photographers) {
+    [FlickrModel fetchWithCompletion:^(PhotographerArrayType photographers) {
         self.photographers = photographers;
         [self.tableView reloadData];
         [self.spinner stopAnimating];
@@ -76,7 +78,7 @@
     [self.spinner startAnimating];
     [self.photographers removeAllObjects];
     [self.tableView reloadData];
-    [FlickrModel reloadWithCompletion:^(NSMutableArray<Photographer *> *photographers) {
+    [FlickrModel fetchWithCompletion:^(PhotographerArrayType photographers) {
         self.photographers = photographers;
         [self.spinner stopAnimating];
         [self.tableView reloadData];
