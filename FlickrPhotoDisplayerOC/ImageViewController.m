@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [ImageDownloader downloadImageWithURL:self.imageURL andCompletion:^(UIImage * _Nullable image) {
+    [ImageDownloader downloadImageWithURL:self.imageURL andCompletion:^(UIImage *image) {
         self.imageView.image = image;
     }];
 }

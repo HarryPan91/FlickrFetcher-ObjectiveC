@@ -13,6 +13,6 @@
 typedef void (^CompletionType)(UIImage * _Nullable);
 
 @interface ImageDownloader : NSObject
-+ (void)beginDownloadImages: (NSArray<Photo *> * _Nullable)photos withCompletion:(void (^ _Nullable)(UIImage * _Nullable, NSURL * _Nullable))completion;
-+ (void)downloadImageWithURL: (NSURL * _Nonnull)URL andCompletion:(CompletionType _Nullable) completion;
++ (void)beginDownloadImages: (nullable NSArray<Photo *> *)photos withCompletion:(void (^ _Nullable)(UIImage * __nullable, NSURL * __nullable))completion;
++ (void)downloadImageWithURL: (nullable NSURL *)URL andCompletion:(nullable CompletionType) completion;
 @end

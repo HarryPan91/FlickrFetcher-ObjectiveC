@@ -12,12 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Photo : NSObject
 
-@property(nonatomic, strong) NSString *unique;
-@property(nonatomic, strong) NSString *title;
-@property(nonatomic, strong) NSString *subtitle;
+@property(nonatomic, copy) NSString *unique;
+@property(nonatomic, copy) NSString *title;
+@property(nonatomic, copy) NSString *subtitle;
 @property(nonatomic, strong) NSURL *imageURL;
 @property(nonatomic, strong) NSURL *thumbnailURL;
-@property(nonatomic, strong) NSString *owner;
+@property(nonatomic, copy) NSString *owner;
 - (instancetype)initWithPhoto: (NSDictionary<NSString *, id> *)photo;
 
 @end

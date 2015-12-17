@@ -18,7 +18,7 @@
     _photos = photos.mutableCopy;
 }
 
-- (instancetype)initWithName: (NSString *)name andPhotos: (NSMutableArray<Photo *> *)photos {
+- (instancetype)initWithName: (NSString *)name photos: (NSMutableArray<Photo *> *)photos {
     self = [super init];
     if (self) {
         self.name = name;

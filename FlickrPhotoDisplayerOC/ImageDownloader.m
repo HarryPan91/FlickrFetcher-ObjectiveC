@@ -23,21 +23,21 @@ static NSMutableDictionary<NSString *, NSMutableArray<CompletionType> *> *imageW
     }
 }
 
-+ (void)beginDownloadImages: (NSArray<Photo *> *)photos withCompletion:(void (^)(UIImage * _Nullable, NSURL * _Nullable))completion {
++ (void)beginDownloadImages: (NSArray<Photo *> *)photos withCompletion:(void (^)(UIImage *, NSURL *))completion {
     for (Photo *photoInfo in photos) {
-        [self downloadImageWithURL:photoInfo.thumbnailURL andCompletion:^(UIImage * _Nullable image) {
+        [self downloadImageWithURL:photoInfo.thumbnailURL andCompletion:^(UIImage *image) {
             completion(image, photoInfo.imageURL);
         }];
     }
 }
 
-+ (void)getDataFromURL: (NSURL * _Nonnull)URL withCompletion:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completion {
-    [[[NSURLSession sharedSession] dataTaskWithURL:URL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
++ (void)getDataFromURL: (NSURL * _Nonnull)URL withCompletion:(void (^)(NSData *, NSURLResponse *, NSError *))completion {
+    [[[NSURLSession sharedSession] dataTaskWithURL:URL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         completion(data, response, error);
     }] resume];
 }
 
-+ (void)downloadImageWithURL: (NSURL * _Nonnull)URL andCompletion:(CompletionType) completion {
++ (void)downloadImageWithURL: (NSURL *)URL andCompletion:(CompletionType) completion {
     UIImage *image = [imageCache objectForKey:URL.absoluteString];
     if (image) {
         completion(image);
@@ -50,7 +50,7 @@ static NSMutableDictionary<NSString *, NSMutableArray<CompletionType> *> *imageW
             imageWithCallbackBlocks[URL.absoluteString] = @[completion].mutableCopy;
         }
 
-        [self getDataFromURL:URL withCompletion:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        [self getDataFromURL:URL withCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
             UIImage *image = [[UIImage alloc] initWithData:data];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [imageCache setObject:image forKey:URL.absoluteString];

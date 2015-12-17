@@ -37,7 +37,7 @@ static NSString * const reuseIdentifier = @"PhotoCollectionViewCell";
 
 - (void)setPhotos:(NSArray<Photo *> *)photos {
     _photos = photos;
-    [ImageDownloader beginDownloadImages:photos withCompletion:^(UIImage * _Nullable image, NSURL * _Nullable URL) {
+    [ImageDownloader beginDownloadImages:photos withCompletion:^(UIImage *image, NSURL *URL) {
         if (image != nil && URL != nil) {
             [self.imageURLs addObject:URL];
             [self.thumbnailImages addObject:image];

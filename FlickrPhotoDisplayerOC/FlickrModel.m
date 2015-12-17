@@ -44,7 +44,7 @@
             Photographer *p = filteredPhotographers.firstObject;
             [p.photos addObject:newPhoto];
         } else {
-            [photographers addObject:[[Photographer alloc]initWithName:photographer andPhotos:@[newPhoto].mutableCopy]];
+            [photographers addObject:[[Photographer alloc]initWithName:photographer photos:@[newPhoto].mutableCopy]];
         }
     }
     return photographers;

@@ -12,9 +12,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Photographer : NSObject
-@property(nonatomic, strong) NSString *name;
+@property(nonatomic, copy) NSString *name;
 @property(nonatomic, copy) NSMutableArray<Photo *> *photos;
-- (instancetype)initWithName: (NSString *)name andPhotos: (NSMutableArray<Photo *> *)photos;
+- (instancetype)initWithName: (NSString *)name photos: (NSMutableArray<Photo *> *)photos;
 
 @end
 
